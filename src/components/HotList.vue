@@ -177,6 +177,7 @@ const getHotListsData = async (name, isNew = false) => {
     if (result.code === 200) {
       listLoading.value = false;
       hotListData.value = result;
+      updateTime.value = formatTime(result.updateTime);
       // 滚动至顶部
       if (scrollbarRef.value) {
         scrollbarRef.value.scrollTo({ position: "top", behavior: "smooth" });
@@ -254,6 +255,7 @@ watch(
   () => store.timeData,
   () => {
     if (hotListData.value) {
+      console.log(hotListData.value.updateTime)
       updateTime.value = formatTime(hotListData.value.updateTime);
     }
   }
