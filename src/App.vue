@@ -6,7 +6,6 @@
       :class="store.headerFixed ? 'fixed' : null"
     >
       <n-back-top :visibility-height="2" @update:show="backTopChange" />
-      <Header :class="headerShow ? 'show' : null" />
       <main>
         <router-view v-slot="{ Component }">
           <keep-alive>
@@ -24,7 +23,7 @@
 <script setup>
 import { mainStore } from "@/store";
 import Provider from "@/components/Provider.vue";
-import Header from "@/components/Header.vue";
+
 import Footer from "@/components/Footer.vue";
 
 const store = mainStore();
@@ -61,7 +60,7 @@ onMounted(() => {
       left: 0;
       box-sizing: border-box;
       &.show {
-        height: 70px;
+        height: 90px;
         border-bottom: 2px solid var(--n-border-color);
         background-color: var(--n-color);
         :deep(section) {
@@ -82,7 +81,7 @@ onMounted(() => {
       }
     }
     main {
-      padding: 118px 5vw 0 5vw;
+      padding: 18px 5vw 0 5vw;
     }
   }
   :deep(.n-scrollbar-rail) {
